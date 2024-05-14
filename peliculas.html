@@ -38,7 +38,7 @@ const basedatos = getFirestore(app);
 
 const pelifrom = document.getElementById("form-peliculas");
 
-pelifrom.addEventListener("submit", async(e) =>{e.preventDefault(); await addDoc(collection(basedatos,"categorias"),
+pelifrom.addEventListener("submit", async(e) =>{e.preventDefault(); await addDoc(collection(basedatos,"peliculas"),
 {nombre: pelifrom.nombre.value, descripcion: pelifrom.descripcion.value, codigo: pelifrom.codigo.value});
 pelifrom.reset();
 });
