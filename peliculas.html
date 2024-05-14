@@ -11,7 +11,7 @@
 <body>
     <h1>Gestion de peliculas</h1>
     <hr>
-    <form action="insert">
+    <form id="form-peliculas">
         <input type="text" id="nombre" placeholder="Ingrese el nombre de la categoria">
         <input type="text" id="descripcion" placeholder="Ingrese la descripcion de la categoria">
         <input type="text" id="codigo" placeholder="Ingrese el codigo de la categoria">
@@ -36,6 +36,16 @@
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+//conexion a la base de datos
+const basedatos = getFirestore(app);
+
+const pelifrom = document.getElementById("form-peliculas");
+
+pelifrom.addEventListener("submit", async(e) =>{e.preventDefault(); await addDoc(collection(basedatos,"categorias"),
+{nombre: pelifrom.nombre.value, descripcion: pelifrom.descripcion.value, codigo: pelifrom.codigo.value});
+pelifrom.reset();
+});
+
   </script>
 
 </html>
