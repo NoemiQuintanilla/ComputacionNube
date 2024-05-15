@@ -41,11 +41,11 @@
         animal.addEventListener("submit",async(e)=>{
             e.preventDefault();
             await addDoc(collection(db,"animal"),{
-                nombre: productfrom.nombre.value,
-                raza: productfrom.raza.value,
-                codigo: productfrom.codigo.value
+                nombre: animal.nombre.value,
+                raza: animal.raza.value,
+                codigo: animal.codigo.value
             });
-            productfrom.reset();
+            animal.reset();
         });
       </script>
     
