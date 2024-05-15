@@ -23,34 +23,34 @@
        
       
         const firebaseConfig = {
-        apiKey: "AIzaSyB8QtPAjuzTuEq-UhJFdHwwO4640s87JzI",
-        authDomain: "peliculas-ab6f0.firebaseapp.com",
-        projectId: "peliculas-ab6f0",
-        storageBucket: "peliculas-ab6f0.appspot.com",
-        messagingSenderId: "844654346163",
-        appId: "1:844654346163:web:8a59dae7b3a6d988f895c6",
-        measurementId: "G-E045355JFK"
-    };
+            apiKey: "AIzaSyB8QtPAjuzTuEq-UhJFdHwwO4640s87JzI",
+            authDomain: "peliculas-ab6f0.firebaseapp.com",
+            projectId: "peliculas-ab6f0",
+            storageBucket: "peliculas-ab6f0.appspot.com",
+            messagingSenderId: "844654346163",
+            appId: "1:844654346163:web:8a59dae7b3a6d988f895c6",
+            measurementId: "G-E045355JFK"
+        };
     
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    //conexion a la base de datos
-    const basedatos = getFirestore(app);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        //conexion a la base de datos
+        const basedatos = getFirestore(app);
     
-    const pelifrom = document.getElementById("form-peliculas");
+        const pelifrom = document.getElementById("form-peliculas");
     
-    pelifrom.addEventListener("submit", async(e) =>{
-        e.preventDefault(); 
-        await addDoc(collection(basedatos,"categorias"),
-    {
-            nombre: pelifrom.nombre.value, 
-            descripcion: pelifrom.descripcion.value, 
-            codigo: pelifrom.codigo.value
+        pelifrom.addEventListener("submit", async(e) =>{
+            e.preventDefault(); 
+            await addDoc(collection(basedatos,"categorias"),
+        {
+                nombre: pelifrom.nombre.value, 
+                descripcion: pelifrom.descripcion.value, 
+                codigo: pelifrom.codigo.value
+            });
+            pelifrom.reset();
         });
-        pelifrom.reset();
-    });
     
-      </script>
+    </script>
     
 </body>
 
