@@ -14,14 +14,15 @@
         <input type="text" id="codigo" placeholder="Ingrese el codigo de la categoria">
         <button type="submit">Agregar Categoria</button>
     </form>
+   
     <script type="module">
-    
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-        // para conectarse al base de datos de firebase
-        import{getFirestore, collection,addDoc,onSnapshot,deleteDoc,doc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"
-       
+        import {getFirestore,collection,addDoc,onSnapshot,deleteDoc,doc} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
       
+        // Your web app's Firebase configuration
         const firebaseConfig = {
             apiKey: "AIzaSyB8QtPAjuzTuEq-UhJFdHwwO4640s87JzI",
             authDomain: "peliculas-ab6f0.firebaseapp.com",
@@ -31,25 +32,21 @@
             appId: "1:844654346163:web:8a59dae7b3a6d988f895c6",
             measurementId: "G-E045355JFK"
         };
-    
+      
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
-        //conexion a la base de datos
-        const basedatos = getFirestore(app);
-    
-        const pelifrom = document.getElementById("form-peliculas");
-    
-        pelifrom.addEventListener("submit", async(e) =>{
-            e.preventDefault(); 
-            await addDoc(collection(basedatos,"categorias"),
-        {
-                nombre: pelifrom.nombre.value, 
-                descripcion: pelifrom.descripcion.value, 
-                codigo: pelifrom.codigo.value
+        const db = getFirestore(app);
+
+        const productfrom = document.getElementById("form-peliculas");
+        productfrom.addEventListener("submit",async(e)=>{
+            e.preventDefault();
+            await addDoc(collection(db,"categorias"),{
+                nombre: productfrom.nombre.value,
+                descripcion: productfrom.descripcion.value,
+                codigo: productfrom.codigo.value
             });
-            pelifrom.reset();
+            productfrom.reset();
         });
-    
     </script>
     
 </body>
