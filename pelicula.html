@@ -43,7 +43,7 @@
             e.preventDefault();
             await addDoc(collection(db,"pelicula"),{
                 nombre: productfrom.nombre.value,
-                descripcion: productfrom.descripcion.value,
+                precio: productfrom.precio.value,
                 codigo: productfrom.codigo.value
             });
             productfrom.reset();
